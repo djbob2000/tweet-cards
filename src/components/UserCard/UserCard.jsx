@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-// import { followUser } from "../redux/actions";
+import { updateUser } from "../../redux/users/users.operations";
 
 export const UserCard = ({ user }) => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleFollowClick = () => {
-    // dispatch(followUser(user.id));
+    dispatch(updateUser(user.id));
     console.log("CLICKK FOLLLOW");
   };
 
@@ -25,5 +25,3 @@ export const UserCard = ({ user }) => {
     </li>
   );
 };
-
-export default UserCard;

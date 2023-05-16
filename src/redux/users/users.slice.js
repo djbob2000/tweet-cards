@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { usersInitState } from "./users.initState";
-import { fetchUsers, updateUser } from "./users.slice";
+import { fetchUsers, updateUser } from "./users.operations";
 
 const usersSlice = createSlice({
   name: "users",
