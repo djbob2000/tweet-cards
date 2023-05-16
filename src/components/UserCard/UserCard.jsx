@@ -11,7 +11,7 @@ export const UserCard = ({ user }) => {
   };
 
   return (
-    <div className="user-card">
+    <li className="user-card">
       <img src={user.avatar} alt="Avatar" />
       <h2>{user.user}</h2>
       <p>{user.tweets} Tweets</p>
@@ -22,7 +22,7 @@ export const UserCard = ({ user }) => {
       >
         {user.following ? "FOLLOWING" : "FOLLOW"}
       </button>
-    </div>
+    </li>
   );
 };
 

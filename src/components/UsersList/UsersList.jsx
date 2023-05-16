@@ -29,11 +29,11 @@ export const UsersList = () => {
   return loading ? (
     <p>Loading...</p>
   ) : (
-    <div className="users-list">
+    <ul className="users-list">
       {users.map((user) => (
         <UserCard key={user.id} user={user} />
       ))}
       {users.length > 0 && <button onClick={handleLoadMore}>Load More</button>}
-    </div>
+    </ul>
   );
 };
