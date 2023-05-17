@@ -1,8 +1,5 @@
 export const usersInitState = {
+  data: [],
   isLoading: false,
-  user: "",
-  tweets: "",
-  followers: "",
-  avatar: "",
-  id: "",
+  error: null,
 };

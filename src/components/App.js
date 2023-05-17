@@ -1,5 +1,4 @@
-import "./App.css";
-import { UsersList } from "./components/UsersList/UsersList";
+import { UsersList } from "./UsersList/UsersList";
 
 function App() {
   return (

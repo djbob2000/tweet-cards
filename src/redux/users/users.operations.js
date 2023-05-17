@@ -9,6 +9,8 @@ export const fetchUsers = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const { data } = await axios.get("/users");
+      console.log("data=========>>>>", data);
+
       return data;
     } catch (error) {
       console.log(error);
