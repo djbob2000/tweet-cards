@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../../redux/users/users.operations";
-import { UserCard } from "../UserCard/UserCard";
+import { CardItem } from "../CardItem/CardItem";
 import { selectUsers } from "../../redux/selectors";
-import * as STC from "./UsersList.styled";
+import * as STC from "./CardsList.styled";
 
 export const UsersList = () => {
   const dispatch = useDispatch();
@@ -12,31 +12,26 @@ export const UsersList = () => {
   const loading = false;
   useEffect(() => {
     dispatch(fetchUsers());
-    console.log("DISPATCHH");
   }, [dispatch]);
 
   const handleLoadMore = () => {
     console.log("Load MORE CLICKKKK");
     dispatch(fetchUsers(users.length));
   };
-  console.log("USERS In Users List=========>>>>", users);
-  const fromStore = useSelector((state) => state.users);
-
-  console.log("State=========>>>>", fromStore);
 
   return (
     <STC.Container>
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <STC.ListUsers>
+        <STC.CardsList>
           {users.map((user) => (
-            <UserCard key={user.id} user={user} />
+            <CardItem key={user.id} user={user} />
           ))}
           {users.length > 3 && (
             <button onClick={handleLoadMore}>Load More</button>
           )}
-        </STC.ListUsers>
+        </STC.CardsList>
       )}
     </STC.Container>
   );

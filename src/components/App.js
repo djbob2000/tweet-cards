@@ -1,4 +1,4 @@
-import { UsersList } from "./UsersList/UsersList";
+import { UsersList } from "./CardsList/CardsList";
 
 function App() {
   return (

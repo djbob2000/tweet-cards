@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import storage from "redux-persist/lib/storage";
+import { persistReducer } from "redux-persist";
 import { usersInitState } from "./users.initState";
 import { fetchUsers, updateUser } from "./users.operations";
 
@@ -32,4 +33,9 @@ const usersSlice = createSlice({
   },
 });
 
-export const usersReducer = usersSlice.reducer;
+const persistConfig = {
+  key: "users",
+  storage,
+  whitelist: ["users"],
+};
+export const usersReducer = persistReducer(persistConfig, usersSlice.reducer);
