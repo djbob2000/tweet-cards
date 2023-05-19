@@ -36,6 +36,6 @@ const usersSlice = createSlice({
 const persistConfig = {
   key: "users",
   storage,
-  whitelist: ["users"],
+  whitelist: ["data"],
 };
 export const usersReducer = persistReducer(persistConfig, usersSlice.reducer);

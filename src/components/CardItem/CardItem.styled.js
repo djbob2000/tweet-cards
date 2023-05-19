@@ -7,7 +7,7 @@ export const CardContainer = styled.div`
   align-items: center;
   width: 380px;
   height: 460px;
-  padding: 20px 20px 36px 20px;
+  padding: 28px 36px 36px 36px;
   background: linear-gradient(
     114.99deg,
     #471ca9 -0.99%,
@@ -22,17 +22,15 @@ export const Logo = styled.svg`
   position: absolute;
   width: 76px;
   height: 22px;
-  /* margin-left: 20px;
-  margin-top: 20px;
-  margin-bottom: auto; */
-  /* align-self: flex-start; */
+  top: 20px;
+  left: 20px;
 `;
 
 export const CardBackgroundImg = styled.img`
   /* position: absolute; */
   width: 308px;
   height: 168px;
-  margin-top: 8px;
+  /* margin-top: 8px; */
 `;
 
 export const Line = styled.div`
@@ -62,13 +60,14 @@ export const Button = styled.button`
   text-transform: uppercase;
   color: #373737;
 `;
-export const InfoWrap = styled.button`
-  margin-bottom: 36px;
+
+export const InfoWrap = styled.div`
+  margin-top: auto;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: auto;
 `;
 
 export const InfoText = styled.span`
@@ -78,7 +77,7 @@ export const InfoText = styled.span`
   line-height: 1.2;
   text-transform: uppercase;
   color: #ebd8ff;
-  :last-of-type {
+  &:last-of-type {
     margin-bottom: 0;
   }
 `;

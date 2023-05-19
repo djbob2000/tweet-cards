@@ -12,11 +12,12 @@ import { Button } from "../Button/Button";
 export const CardItem = ({ user }) => {
   const dispatch = useDispatch();
 
-  const handleFollowClick = () => {
+  const handleFollow = () => {
     dispatch(updateUser(user.id));
     console.log("CLICKK FOLLLOW");
   };
   const following = null;
+
   return (
     <STC.CardContainer>
       <STC.Logo>
@@ -34,8 +35,9 @@ export const CardItem = ({ user }) => {
       </STC.InfoWrap>
 
       <Button
-        onClick={handleFollowClick}
+        onClick={handleFollow}
         btnText={following ? "FOLLOWING" : "FOLLOW"}
+        isActive={user.following}
       ></Button>
     </STC.CardContainer>
   );

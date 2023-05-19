@@ -6,6 +6,7 @@ import { selectUsers } from "../../redux/selectors";
 import * as STC from "./CardsList.styled";
 
 export const UsersList = () => {
+  console.log("UsersList");
   const dispatch = useDispatch();
   const users = useSelector(selectUsers);
 
@@ -19,6 +20,7 @@ export const UsersList = () => {
     dispatch(fetchUsers(users.length));
   };
 
+  console.log("users===>>>", users);
   return (
     <STC.Container>
       {loading ? (

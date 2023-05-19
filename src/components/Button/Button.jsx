@@ -1,3 +1,5 @@
+import * as STC from "./Button.styled";
+
 export const Button = ({ onClick, btnText }) => {
-  return <Button onClick={onClick}>{btnText}</Button>;
+  return <STC.Button onClick={onClick}>{btnText}</STC.Button>;
 };
