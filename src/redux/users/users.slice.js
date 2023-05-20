@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import { usersInitState } from "./users.initState";
-import { fetchUsers, updateUser } from "./users.operations";
+import { fetchUsers } from "./users.operations";
 
 const usersSlice = createSlice({
   name: "users",

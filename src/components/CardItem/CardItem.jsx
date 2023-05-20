@@ -9,11 +9,7 @@ import { Button } from "../Button/Button";
 import { followingUser, unFollowingUser } from "../../redux/users/users.slice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFollowingIDs } from "../../redux/selectors";
-import {
-  updateFollowers,
-  followUser,
-  unfollowUser,
-} from "../../redux/users/users.operations";
+import { updateFollowers } from "../../redux/users/users.operations";
 
 export const CardItem = ({ user }) => {
   const dispatch = useDispatch();
