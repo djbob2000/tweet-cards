@@ -1,5 +1,7 @@
 export const usersInitState = {
-  data: [],
+  users: [],
   isLoading: false,
   error: null,
+  page: 1,
+  followingIDs: [],
 };

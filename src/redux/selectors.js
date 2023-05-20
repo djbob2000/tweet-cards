@@ -1,1 +1,2 @@
-export const selectUsers = (state) => state.users.data;
+export const selectUsers = (state) => state.users.users;
+export const selectFollowingIDs = (state) => state.users.followingIDs;

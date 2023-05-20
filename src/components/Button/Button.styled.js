@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Button = styled.button`
   min-width: 196px;
   height: 50px;
-
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -19,5 +20,8 @@ export const Button = styled.button`
   line-height: 1.22;
   text-transform: uppercase;
   color: #373737;
-  background-color: ${(props) => (props.following ? "#5CD3A8" : "#EBD8FF")};
+  background-color: ${(props) => (props.active ? "#5CD3A8" : "#EBD8FF")};
+  &:active {
+    background-color: #5cd3a8;
+  }
 `;

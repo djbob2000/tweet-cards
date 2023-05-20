@@ -4,37 +4,45 @@ import { fetchUsers } from "../../redux/users/users.operations";
 import { CardItem } from "../CardItem/CardItem";
 import { selectUsers } from "../../redux/selectors";
 import * as STC from "./CardsList.styled";
+import { Button } from "../Button/Button";
+import { loadMore, resetUsers } from "redux/users/users.slice";
 
 export const UsersList = () => {
   console.log("UsersList");
   const dispatch = useDispatch();
   const users = useSelector(selectUsers);
+  // const page = useSelector((state) => state.users.page);
 
   const loading = false;
   useEffect(() => {
+    dispatch(resetUsers);
     dispatch(fetchUsers());
   }, [dispatch]);
 
-  const handleLoadMore = () => {
-    console.log("Load MORE CLICKKKK");
-    dispatch(fetchUsers(users.length));
+  const handleLoadMore = async () => {
+    await dispatch(loadMore());
+    await dispatch(fetchUsers());
   };
 
   console.log("users===>>>", users);
   return (
-    <STC.Container>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <STC.CardsList>
-          {users.map((user) => (
-            <CardItem key={user.id} user={user} />
-          ))}
-          {users.length > 3 && (
-            <button onClick={handleLoadMore}>Load More</button>
-          )}
-        </STC.CardsList>
+    <>
+      <STC.Container>
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <>
+            <STC.CardsList>
+              {users &&
+                users.map((user) => <CardItem key={user.id} user={user} />)}
+            </STC.CardsList>
+            <p></p>
+          </>
+        )}
+      </STC.Container>
+      {users.length > 2 && (
+        <Button onClick={handleLoadMore} btnText={"Load More"}></Button>
       )}
-    </STC.Container>
+    </>
   );
 };
