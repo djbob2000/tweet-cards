@@ -17,11 +17,9 @@ const usersSlice = createSlice({
     },
     followingUser: (state, { payload }) => {
       state.followingIDs.push(payload);
-      // state.users[payload.id].followers += 1;
     },
     unFollowingUser: (state, { payload }) => {
       state.followingIDs = state.followingIDs.filter((id) => id !== payload);
-      // state.users[payload.id].followers -= 1;
     },
   },
 

@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   padding: 16px 16px 36px 16px;
 `;
+export const LoadMoreWrap = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export const CardsList = styled.div`
   display: grid;

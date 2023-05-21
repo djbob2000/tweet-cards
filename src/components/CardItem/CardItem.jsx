@@ -10,8 +10,12 @@ import { followingUser, unFollowingUser } from "../../redux/users/users.slice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFollowingIDs } from "../../redux/selectors";
 import { updateUser } from "../../redux/users/users.operations";
+import { selectIsLoading } from "../../redux/selectors";
+import { BeatLoader } from "react-spinners";
 
 export const CardItem = ({ user }) => {
+  const isLoading = useSelector(selectIsLoading);
+
   const addComma = (followers) => {
     const strNumber = followers.toString();
     let result = "";
@@ -64,7 +68,15 @@ export const CardItem = ({ user }) => {
 
       <Button
         onClick={handleFollow}
-        btnText={isFollowing ? "FOLLOWING" : "FOLLOW"}
+        btnText={
+          isLoading ? (
+            <BeatLoader color="#4B2A99" />
+          ) : isFollowing ? (
+            "FOLLOWING"
+          ) : (
+            "FOLLOW"
+          )
+        }
         isActive={isFollowing}
       ></Button>
     </STC.CardContainer>

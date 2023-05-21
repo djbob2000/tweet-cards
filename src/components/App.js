@@ -2,8 +2,6 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "../components/Layout/Layout";
 import { Container } from "./App.styled";
 import { lazy, Suspense } from "react";
-// import { Tweets } from "../pages/Tweets/Tweets";
-// import { Home } from "../pages/Home/Home";
 
 const Home = lazy(() => import("../pages/Home/Home"));
 const Tweets = lazy(() => import("../pages/Tweets/Tweets"));
