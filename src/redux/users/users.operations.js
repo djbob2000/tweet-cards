@@ -16,9 +16,6 @@ export const fetchUsers = createAsyncThunk(
           limit: 3,
         },
       });
-      console.log("page=========>>>>", page);
-      console.log("data=========>>>>", data);
-
       return data;
     } catch (error) {
       console.log(error);
@@ -27,11 +24,11 @@ export const fetchUsers = createAsyncThunk(
   }
 );
 
-export const updateFollowers = createAsyncThunk(
+export const updateUser = createAsyncThunk(
   "users/updateFollowers",
   async (user, thunkAPI) => {
     try {
-      const { data } = await axios.patch(`/users/${user.id}`, user);
+      const { data } = await axios.put(`/users/${user.id}`, user);
 
       return data;
     } catch (error) {
@@ -40,21 +37,3 @@ export const updateFollowers = createAsyncThunk(
     }
   }
 );
-
-// export const followUser = createAsyncThunk(
-//   "users/followUser",
-//   async (userId) => {
-//     const { data } = await axios.patch(`/users/${userId}`, { followers: "+1" });
-
-//     return data;
-//   }
-// );
-
-// export const unfollowUser = createAsyncThunk(
-//   "users/unfollowUser",
-//   async (user) => {
-//     const { data } = await axios.patch(`/users/1`, { user });
-
-//     return data;
-//   }
-// );

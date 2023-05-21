@@ -8,7 +8,6 @@ import { Button } from "../Button/Button";
 import { loadMore, resetUsers } from "redux/users/users.slice";
 
 export const UsersList = () => {
-  console.log("UsersList");
   const dispatch = useDispatch();
   const users = useSelector(selectUsers);
   // const page = useSelector((state) => state.users.page);
@@ -24,7 +23,6 @@ export const UsersList = () => {
     await dispatch(fetchUsers());
   };
 
-  console.log("users===>>>", users);
   return (
     <>
       <STC.Container>

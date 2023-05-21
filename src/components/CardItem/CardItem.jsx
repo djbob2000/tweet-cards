@@ -9,9 +9,27 @@ import { Button } from "../Button/Button";
 import { followingUser, unFollowingUser } from "../../redux/users/users.slice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFollowingIDs } from "../../redux/selectors";
-import { updateFollowers } from "../../redux/users/users.operations";
+import { updateUser } from "../../redux/users/users.operations";
 
 export const CardItem = ({ user }) => {
+  const addComma = (followers) => {
+    const strNumber = followers.toString();
+    let result = "";
+    let count = 0;
+
+    for (let i = strNumber.length - 1; i >= 0; i--) {
+      result = strNumber[i] + result;
+      count++;
+
+      if (count === 3 && i !== 0) {
+        result = "," + result;
+        count = 0;
+      }
+    }
+
+    return result;
+  };
+
   const dispatch = useDispatch();
   const followingIDs = useSelector(selectFollowingIDs);
   const isFollowing = followingIDs.includes(user.id);
@@ -20,14 +38,12 @@ export const CardItem = ({ user }) => {
     if (isFollowing) {
       dispatch(unFollowingUser(user.id));
       user = { ...user, followers: user.followers - 1 };
-      dispatch(updateFollowers(user));
+      dispatch(updateUser(user));
     } else {
       dispatch(followingUser(user.id));
-      user = { ...user, followers: user.followers + 1 };
-      dispatch(updateFollowers(user));
+      user = { ...user, followers: +user.followers + 1 };
+      dispatch(updateUser(user));
     }
-
-    console.log("CLICKK FOLLLOW");
   };
 
   return (
@@ -43,7 +59,7 @@ export const CardItem = ({ user }) => {
       <CardAvatar imageURL={user.avatar} />
       <STC.InfoWrap>
         <STC.InfoText>{user.tweets} Tweets</STC.InfoText>
-        <STC.InfoText>{user.followers} Followers</STC.InfoText>
+        <STC.InfoText>{addComma(user.followers)} Followers</STC.InfoText>
       </STC.InfoWrap>
 
       <Button
