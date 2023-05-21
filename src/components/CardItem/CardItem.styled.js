@@ -27,10 +27,8 @@ export const Logo = styled.svg`
 `;
 
 export const CardBackgroundImg = styled.img`
-  /* position: absolute; */
   width: 308px;
   height: 168px;
-  /* margin-top: 8px; */
 `;
 
 export const Line = styled.div`

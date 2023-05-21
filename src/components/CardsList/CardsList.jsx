@@ -7,10 +7,9 @@ import * as STC from "./CardsList.styled";
 import { Button } from "../Button/Button";
 import { loadMore, resetUsers } from "redux/users/users.slice";
 
-export const UsersList = () => {
+export const CardsList = () => {
   const dispatch = useDispatch();
   const users = useSelector(selectUsers);
-  // const page = useSelector((state) => state.users.page);
 
   const loading = false;
   useEffect(() => {
@@ -25,7 +24,7 @@ export const UsersList = () => {
 
   return (
     <>
-      <STC.Container>
+      <STC.Wrapper>
         {loading ? (
           <p>Loading...</p>
         ) : (
@@ -37,7 +36,7 @@ export const UsersList = () => {
             <p></p>
           </>
         )}
-      </STC.Container>
+      </STC.Wrapper>
       {users.length > 2 && (
         <Button onClick={handleLoadMore} btnText={"Load More"}></Button>
       )}
