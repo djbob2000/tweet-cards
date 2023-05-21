@@ -48,18 +48,15 @@ const usersSlice = createSlice({
       })
 
       .addCase(updateUser.pending, (state, action) => {
-        state.isLoading = true;
-        state.error = "";
+        state.error = null;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
-        state.isLoading = false;
         state.error = null;
         state.users = state.users.map((item) =>
           item.id === action.payload.id ? action.payload : item
         );
       })
       .addCase(updateUser.rejected, (state, action) => {
-        state.isLoading = false;
         state.error = action.payload;
       });
   },
