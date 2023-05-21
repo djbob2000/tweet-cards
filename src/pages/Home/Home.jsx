@@ -1,6 +1,6 @@
 import * as STC from "./Home.styled";
 
-export const Home = () => {
+const Home = () => {
   return (
     <STC.Div>
       Home screen of test task. <br />
@@ -9,3 +9,5 @@ export const Home = () => {
     </STC.Div>
   );
 };
+
+export default Home;

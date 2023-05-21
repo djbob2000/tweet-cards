@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { CardsList } from "../../components/CardsList/CardsList";
 
-export const Tweets = () => {
+const Tweets = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const previousPath = location.state ? location.state : "/";
@@ -17,3 +17,5 @@ export const Tweets = () => {
     </>
   );
 };
+
+export default Tweets;
