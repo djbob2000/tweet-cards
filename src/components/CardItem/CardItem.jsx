@@ -68,15 +68,7 @@ export const CardItem = ({ user }) => {
 
       <Button
         onClick={handleFollow}
-        btnText={
-          isLoading ? (
-            <BeatLoader color="#4B2A99" />
-          ) : isFollowing ? (
-            "FOLLOWING"
-          ) : (
-            "FOLLOW"
-          )
-        }
+        btnText={isFollowing ? "FOLLOWING" : "FOLLOW"}
         isActive={isFollowing}
       ></Button>
     </STC.CardContainer>
